@@ -21,4 +21,6 @@ run:
     whoami
     env
     ls -la
+    cd project-src
+    ls -la
   
