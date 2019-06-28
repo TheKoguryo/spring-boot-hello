@@ -26,5 +26,6 @@ run:
     cd ci
     ls -la
     chmod 755 build.sh
-    ./build.sh
+    ls -la
+    sh ./build.sh
   
