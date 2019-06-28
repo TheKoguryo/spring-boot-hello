@@ -21,9 +21,5 @@ run:
     whoami
     env
     ls -la
-    cd project-src
-    ls -la
-    cd ci
-    ls -la
-    sh ./build.sh
+    sh project-src/ci/build.sh
   
