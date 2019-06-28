@@ -14,4 +14,6 @@ outputs:
   - name: build-output
 
 run:
-  path: project-src/ci/build.sh
+  path: sh
+  args:
+  - ls -la
