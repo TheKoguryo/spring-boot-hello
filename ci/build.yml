@@ -20,4 +20,5 @@ run:
   - |
     whoami
     env
+    ls -la
   
