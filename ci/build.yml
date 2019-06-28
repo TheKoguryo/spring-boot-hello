@@ -16,5 +16,8 @@ outputs:
 run:
   path: sh
   args:
-  - ls -la
+  - -exc
+  - |
+    whoami
+    env
   
