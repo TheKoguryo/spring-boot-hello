@@ -25,4 +25,5 @@ run:
     ls -la
     cd ci
     ls -la
+    project-src/ci/build.sh
   
