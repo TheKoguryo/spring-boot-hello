@@ -25,5 +25,5 @@ run:
     ls -la
     cd ci
     ls -la
-    build.sh
+    ./build.sh
   
