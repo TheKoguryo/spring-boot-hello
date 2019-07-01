@@ -10,9 +10,7 @@ mvn package
 
 ls -la target/
 
-cd /tmp/build
-mkdir put
-mkdir build-output
+mkdir -p /tmp/build/put/build-output
 
 cp target/*.jar /tmp/build/build-output/.
 
