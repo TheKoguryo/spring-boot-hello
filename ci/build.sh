@@ -6,4 +6,4 @@ echo "hello"
 
 mvn --version
 
-mvn install
+mvn package
