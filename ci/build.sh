@@ -10,6 +10,6 @@ mvn package
 
 ls -la target/
 
-cd target/*.jar build-output/.
+cp target/*.jar build-output/.
 
 ls -la build-output/
