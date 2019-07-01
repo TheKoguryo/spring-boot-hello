@@ -12,6 +12,6 @@ ls -la target/
 
 mkdir -p /tmp/build/put/build-output
 
-cp target/*.jar /tmp/build/build-output/.
+cp target/*.jar /tmp/build/put/build-output/.
 
-ls -la /tmp/build/build-output/
+ls -la /tmp/build/put/build-output/
