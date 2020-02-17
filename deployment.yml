@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-hello-deployment
+  labels:
+    app: spring-hello
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-hello
+  template:
+    metadata:
+      labels:
+        app: spring-hello
+    spec:
+      containers:
+      - name: spring-hello
+        image: harbor.run.haas-424.pez.pivotal.io/demo/spring-hello:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+      nodeSelector:
+        key: worker
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring-hello
+spec:
+  selector:
+    app: spring-hello
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: ClusterIP
