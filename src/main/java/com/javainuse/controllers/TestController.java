@@ -44,6 +44,7 @@ public class TestController {
 		try { 
 			Load.generateLoad();
 		} catch {
+			System.out.println("error");
 		}
 
 		return "finished";
