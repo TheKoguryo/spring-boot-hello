@@ -8,6 +8,8 @@ import com.javainuse.model.Employee;
 
 import java.net.InetAddress;
 
+import com.javainuse.utils.Load;
+
 @RestController
 public class TestController {
 
@@ -40,13 +42,8 @@ public class TestController {
 
 	@RequestMapping(value = "/load", method = RequestMethod.GET)
 	public String generateLoad() {
-        	int numCore = 2;
-        	int numThreadsPerCore = 2;
-        	double load = 0.8;
-        	final long duration = 100000;
-        	for (int thread = 0; thread < numCore * numThreadsPerCore; thread++) {
-            		new BusyThread("Thread" + thread, load, duration).start();
-        	}
+
+		Load.generateLoad();
 
 		return "finished";
     	}
