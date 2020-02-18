@@ -20,6 +20,11 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
+        resources:
+          # You must specify requests for CPU to autoscale
+          # based on CPU utilization
+          requests:
+            cpu: "250m"
       imagePullSecrets:
       - name: harbor-secret
 ---
@@ -35,3 +40,25 @@ spec:
       port: 8080
       targetPort: 8080
   type: LoadBalancer
+---
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: spring-hello
+  namespace: default
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: spring-hello
+  minReplicas: 1
+  maxReplicas: 2
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      targetAverageUtilization: 50
+  - type: Resource
+    resource:
+      name: memory
+      targetAverageValue: 100Mi
