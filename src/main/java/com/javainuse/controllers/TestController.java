@@ -43,8 +43,7 @@ public class TestController {
 	public String generateLoad() {
 		try { 
 			Load.generateLoad();
-		} catch {
-			System.out.println("error");
+		} catch (Exception e) {
 		}
 
 		return "finished";
