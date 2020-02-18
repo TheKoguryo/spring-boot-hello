@@ -11,6 +11,11 @@ import java.net.InetAddress;
 @RestController
 public class TestController {
 
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String helloPage() {
+		return "Hello Spring Boot";
+        }
+
 	@RequestMapping(value = "/employee", method = RequestMethod.GET)
 	public Employee firstPage() {
 
