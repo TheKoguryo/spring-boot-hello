@@ -39,11 +39,12 @@ public class TestController {
 		return emp;
 	}
 
-
 	@RequestMapping(value = "/load", method = RequestMethod.GET)
 	public String generateLoad() {
-
-		Load.generateLoad();
+		try { 
+			Load.generateLoad();
+		} catch {
+		}
 
 		return "finished";
     	}
