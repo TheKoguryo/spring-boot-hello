@@ -16,12 +16,12 @@ spec:
     spec:
       containers:
       - name: spring-hello
-        image: harbor.run.haas-424.pez.pivotal.io/demo/spring-hello:latest
+        image: harbor.haas-424.pez.pivotal.io/demo/spring-hello:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
-      nodeSelector:
-        key: worker
+      imagePullSecrets:
+      - name: harbor-secret
 ---
 apiVersion: v1
 kind: Service
@@ -34,4 +34,4 @@ spec:
     - protocol: TCP
       port: 8080
       targetPort: 8080
-  type: ClusterIP
+  type: LoadBalancer
